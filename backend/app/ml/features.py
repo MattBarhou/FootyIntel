@@ -7,6 +7,8 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from app.ml.data_loader import load_matches
+
 ROLLING_WINDOW = 5
 H2H_WINDOW = 3
 
@@ -381,4 +383,25 @@ def get_team_season_stats(
         "corners": recent["corners"],
         "cards": recent["cards"],
         "win_rate": wins / n,
+    }
+
+
+_POINTS_TO_RESULT = {3: "W", 1: "D", 0: "L"}
+
+
+def get_recent_team_form(team: str, n: int = ROLLING_WINDOW) -> dict[str, int | list[str]]:
+    """Return last n match results and aggregates for a team."""
+    matches = load_matches()
+    history = MatchHistory()
+    for _, row in matches.iterrows():
+        history.add_match(row)
+
+    records = history.team_records[team][-n:]
+    results = [_POINTS_TO_RESULT[r.points] for r in records]
+
+    return {
+        "last_5_results": results,
+        "points_last_5": sum(r.points for r in records),
+        "goals_for_last_5": sum(r.goals_for for r in records),
+        "goals_against_last_5": sum(r.goals_against for r in records),
     }

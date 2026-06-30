@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from app.ml.data_loader import get_all_teams
 from app.schemas.teams import Team, TeamFormResponse, TeamsResponse
+from app.services.team_service import get_team_form
 
 router = APIRouter(prefix="/teams", tags=["teams"])
 
@@ -14,6 +15,6 @@ async def list_teams() -> TeamsResponse:
 
 
 @router.get("/{team_name}/form", response_model=TeamFormResponse)
-async def get_team_form(team_name: str) -> TeamFormResponse:
+async def get_team_form_endpoint(team_name: str) -> TeamFormResponse:
     """Return recent match results and form for a team."""
-    raise NotImplementedError
+    return get_team_form(team_name)
