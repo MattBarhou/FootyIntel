@@ -9,14 +9,9 @@ class TeamsResponse(BaseModel):
     teams: list[Team]
 
 
-class MatchResult(BaseModel):
-    opponent: str
-    home: bool
-    goals_for: int
-    goals_against: int
-    result: str  # "W" | "D" | "L"
-
-
 class TeamFormResponse(BaseModel):
-    team_name: str
-    matches: list[MatchResult]
+    team: str
+    last_5_results: list[str]  # "W" | "D" | "L"
+    points_last_5: int
+    goals_for_last_5: int
+    goals_against_last_5: int
