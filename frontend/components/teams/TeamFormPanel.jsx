@@ -1,6 +1,6 @@
 import FormResultPills from "@/components/ui/FormResultPills";
 import StatChip from "@/components/ui/StatChip";
-import { getTeamInitials } from "@/lib/constants";
+import TeamLogo from "@/components/ui/TeamLogo";
 
 export default function TeamFormPanel({ form }) {
   if (!form) {
@@ -11,7 +11,7 @@ export default function TeamFormPanel({ form }) {
     <div className="bauhaus-card relative p-4">
       <span className="bauhaus-card-deco bauhaus-card-deco-yellow" aria-hidden="true" />
       <div className="flex items-center gap-3">
-        <span className="team-avatar team-avatar-a text-sm">{getTeamInitials(form.team)}</span>
+        <TeamLogo teamName={form.team} size="md" variant="a" />
         <div>
           <h3 className="font-black uppercase tracking-tight text-[#121212]">{form.team}</h3>
           <p className="text-xs font-bold uppercase tracking-widest text-[#121212]/50">

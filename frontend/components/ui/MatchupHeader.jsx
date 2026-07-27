@@ -1,4 +1,4 @@
-import { getTeamInitials } from "@/lib/constants";
+import TeamLogo from "@/components/ui/TeamLogo";
 
 export default function MatchupHeader({ homeTeam, awayTeam }) {
   return (
@@ -6,7 +6,7 @@ export default function MatchupHeader({ homeTeam, awayTeam }) {
       <div className="flex flex-1 flex-col items-end gap-1.5 text-right">
         {homeTeam ? (
           <>
-            <span className="team-avatar team-avatar-a">{getTeamInitials(homeTeam)}</span>
+            <TeamLogo teamName={homeTeam} size="md" variant="a" />
             <span className="max-w-[8rem] truncate text-sm font-bold uppercase sm:max-w-none">
               {homeTeam}
             </span>
@@ -24,7 +24,7 @@ export default function MatchupHeader({ homeTeam, awayTeam }) {
       <div className="flex flex-1 flex-col items-start gap-1.5 text-left">
         {awayTeam ? (
           <>
-            <span className="team-avatar team-avatar-b">{getTeamInitials(awayTeam)}</span>
+            <TeamLogo teamName={awayTeam} size="md" variant="b" />
             <span className="max-w-[8rem] truncate text-sm font-bold uppercase sm:max-w-none">
               {awayTeam}
             </span>

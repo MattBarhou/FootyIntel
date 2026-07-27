@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { predictMatchAction } from "@/lib/actions";
 import ProbabilityChart from "@/components/predict/ProbabilityChart";
-import TeamSelect from "@/components/teams/TeamSelect";
+import TeamPicker from "@/components/teams/TeamPicker";
 import ErrorAlert from "@/components/ui/ErrorAlert";
 import GlassCard from "@/components/ui/GlassCard";
 import LoadingState from "@/components/ui/LoadingState";
@@ -45,7 +45,7 @@ export default function PredictPanel({ teams }) {
           <div className="pitch-divider" />
 
           <div className="grid gap-5 md:grid-cols-2">
-            <TeamSelect
+            <TeamPicker
               id="home-team"
               label="Home Team"
               teams={teams}
@@ -54,7 +54,7 @@ export default function PredictPanel({ teams }) {
               disabled={isPending}
               excludeTeam={awayTeam}
             />
-            <TeamSelect
+            <TeamPicker
               id="away-team"
               label="Away Team"
               teams={teams}

@@ -4,6 +4,7 @@ import { useMemo, useState, useTransition } from "react";
 import { fetchTeamFormAction } from "@/lib/actions";
 import ErrorAlert from "@/components/ui/ErrorAlert";
 import LoadingState from "@/components/ui/LoadingState";
+import TeamLogo from "@/components/ui/TeamLogo";
 import TeamFormPanel from "@/components/teams/TeamFormPanel";
 import TeamSearch from "@/components/teams/TeamSearch";
 
@@ -55,12 +56,13 @@ export default function TeamsSidebar({ teams, className = "" }) {
             <li key={team.name}>
               <button
                 type="button"
-                className={`team-row ${
+                className={`team-row flex items-center gap-3 ${
                   selectedTeam === team.name ? "team-row-selected" : ""
                 }`}
                 onClick={() => handleSelectTeam(team.name)}
               >
-                {team.name}
+                <TeamLogo teamName={team.name} size="sm" />
+                <span className="truncate">{team.name}</span>
               </button>
             </li>
           ))}

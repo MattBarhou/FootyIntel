@@ -1,6 +1,7 @@
 import Link from "next/link";
 import GlassCard from "@/components/ui/GlassCard";
 import SectionLabel from "@/components/ui/SectionLabel";
+import TeamLogo from "@/components/ui/TeamLogo";
 
 const FEATURES = [
   {
@@ -90,7 +91,7 @@ export default function HomePage() {
         <div className="relative overflow-hidden border-t-4 border-black bg-[#1040C0] p-8 text-white md:p-12 lg:border-l-4 lg:border-t-0">
           <div className="pointer-events-none absolute -right-8 top-8 h-24 w-24 rounded-full border-4 border-white/30 bg-[#D02020]/40" />
           <div className="pointer-events-none absolute bottom-12 left-8 h-16 w-16 rotate-45 border-4 border-white/30 bg-[#F0C020]/50" />
-          <div className="pointer-events-none absolute right-16 bottom-8 h-0 w-0 border-x-[20px] border-b-[35px] border-x-transparent border-b-[#F0C020]/40" />
+          <div className="pointer-events-none absolute right-16 bottom-8 h-0 w-0 border-x-20 border-b-[35px] border-x-transparent border-b-[#F0C020]/40" />
 
           <div className="relative">
             <span className="text-xs font-bold uppercase tracking-widest text-white/70">
@@ -98,16 +99,12 @@ export default function HomePage() {
             </span>
             <div className="mt-6 flex items-center justify-between gap-3">
               <div className="text-center">
-                <div className="team-avatar team-avatar-a mx-auto border-white bg-white text-[#1040C0]">
-                  AR
-                </div>
+                <TeamLogo teamName="Arsenal" size="md" className="mx-auto" />
                 <p className="mt-2 text-sm font-bold uppercase">Arsenal</p>
               </div>
               <span className="vs-badge border-white text-white">VS</span>
               <div className="text-center">
-                <div className="team-avatar team-avatar-b mx-auto border-white bg-[#F0C020] text-[#121212]">
-                  CH
-                </div>
+                <TeamLogo teamName="Chelsea" size="md" className="mx-auto" />
                 <p className="mt-2 text-sm font-bold uppercase">Chelsea</p>
               </div>
             </div>

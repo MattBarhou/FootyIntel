@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import GeometricLogo from "@/components/ui/GeometricLogo";
 import PillNavLink from "@/components/ui/PillNavLink";
 
 const NAV_LINKS = [
@@ -48,7 +48,13 @@ export default function Navbar({ onOpenTeams }) {
         </div>
 
         <Link href="/" className="group flex items-center gap-3">
-          <GeometricLogo />
+          <Image
+            src="/epl.jpg"
+            alt="Premier League"
+            width={36}
+            height={36}
+            className="h-9 w-9 rounded-lg object-cover"
+          />
           <span className="text-lg font-black uppercase tracking-tight">
             Footy<span className="text-[#1040C0]">Intel</span>
           </span>
@@ -56,7 +62,11 @@ export default function Navbar({ onOpenTeams }) {
 
         <nav className="ml-auto hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
-            <PillNavLink key={link.href} href={link.href} active={isActive(pathname, link.href)}>
+            <PillNavLink
+              key={link.href}
+              href={link.href}
+              active={isActive(pathname, link.href)}
+            >
               {link.label}
             </PillNavLink>
           ))}

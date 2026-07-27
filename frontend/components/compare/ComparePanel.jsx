@@ -3,11 +3,11 @@
 import { useState, useTransition } from "react";
 import { compareTeamsAction } from "@/lib/actions";
 import StatsComparison from "@/components/compare/StatsComparison";
-import TeamSelect from "@/components/teams/TeamSelect";
+import TeamPicker from "@/components/teams/TeamPicker";
 import ErrorAlert from "@/components/ui/ErrorAlert";
 import GlassCard from "@/components/ui/GlassCard";
 import LoadingState from "@/components/ui/LoadingState";
-import { getTeamInitials } from "@/lib/constants";
+import TeamLogo from "@/components/ui/TeamLogo";
 
 export default function ComparePanel({ teams }) {
   const [teamA, setTeamA] = useState("");
@@ -45,18 +45,14 @@ export default function ComparePanel({ teams }) {
           {(teamA || teamB) && (
             <div className="flex items-center justify-center gap-4 py-2">
               <div className="flex flex-col items-center gap-1">
-                <span className="team-avatar team-avatar-a">
-                  {teamA ? getTeamInitials(teamA) : "?"}
-                </span>
+                <TeamLogo teamName={teamA || null} size="md" variant="a" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#121212]/50">
                   {teamA || "Team A"}
                 </span>
               </div>
               <span className="vs-badge">VS</span>
               <div className="flex flex-col items-center gap-1">
-                <span className="team-avatar team-avatar-b">
-                  {teamB ? getTeamInitials(teamB) : "?"}
-                </span>
+                <TeamLogo teamName={teamB || null} size="md" variant="b" />
                 <span className="text-xs font-bold uppercase tracking-wider text-[#121212]/50">
                   {teamB || "Team B"}
                 </span>
@@ -65,7 +61,7 @@ export default function ComparePanel({ teams }) {
           )}
 
           <div className="grid gap-5 md:grid-cols-2">
-            <TeamSelect
+            <TeamPicker
               id="team-a"
               label="Team A"
               teams={teams}
@@ -74,7 +70,7 @@ export default function ComparePanel({ teams }) {
               disabled={isPending}
               excludeTeam={teamB}
             />
-            <TeamSelect
+            <TeamPicker
               id="team-b"
               label="Team B"
               teams={teams}

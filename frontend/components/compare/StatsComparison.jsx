@@ -1,5 +1,6 @@
-import { BETTER_TEAM_LABELS, COMPARE_STAT_LABELS, getTeamInitials } from "@/lib/constants";
+import { BETTER_TEAM_LABELS, COMPARE_STAT_LABELS } from "@/lib/constants";
 import GlassCard from "@/components/ui/GlassCard";
+import TeamLogo from "@/components/ui/TeamLogo";
 
 function formatStatValue(key, value) {
   if (key === "win_rate") {
@@ -64,9 +65,9 @@ export default function StatsComparison({ comparison }) {
       <div className="border-4 border-black bg-[#F0C020] p-6 shadow-[6px_6px_0px_0px_#121212]">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <span className="team-avatar team-avatar-a">{getTeamInitials(comparison.team_a)}</span>
+            <TeamLogo teamName={comparison.team_a} size="md" variant="a" />
             <span className="vs-badge text-[0.6rem]">VS</span>
-            <span className="team-avatar team-avatar-b">{getTeamInitials(comparison.team_b)}</span>
+            <TeamLogo teamName={comparison.team_b} size="md" variant="b" />
           </div>
           <span className="border-2 border-black bg-white px-3 py-1 text-xs font-bold uppercase tracking-widest shadow-[3px_3px_0px_0px_#121212]">
             Season {comparison.season}
@@ -90,9 +91,7 @@ export default function StatsComparison({ comparison }) {
               <tr className="border-b-4 border-black bg-[#1040C0] text-white">
                 <th className="hidden py-3 pr-4 text-right text-sm font-black uppercase md:table-cell">
                   <div className="flex items-center justify-end gap-2">
-                    <span className="team-avatar team-avatar-a border-white bg-white text-[0.6rem] text-[#1040C0]">
-                      {getTeamInitials(comparison.team_a)}
-                    </span>
+                    <TeamLogo teamName={comparison.team_a} size="xs" variant="a" />
                     {comparison.team_a}
                   </div>
                 </th>
@@ -101,9 +100,7 @@ export default function StatsComparison({ comparison }) {
                 </th>
                 <th className="hidden py-3 pl-4 text-left text-sm font-black uppercase md:table-cell">
                   <div className="flex items-center gap-2">
-                    <span className="team-avatar team-avatar-b border-white text-[0.6rem]">
-                      {getTeamInitials(comparison.team_b)}
-                    </span>
+                    <TeamLogo teamName={comparison.team_b} size="xs" variant="b" />
                     {comparison.team_b}
                   </div>
                 </th>
