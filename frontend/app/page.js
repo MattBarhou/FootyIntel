@@ -32,14 +32,14 @@ const FEATURES = [
   },
   {
     step: "03",
-    title: "Form",
+    title: "Chat",
     description:
-      "Browse every team in the sidebar. Tap any club to see their last five results, points, and goals at a glance.",
-    href: null,
+      "Ask natural-language questions about seasons, form, and match results — answers are grounded in indexed Premier League documents.",
+    href: "/chat",
     accent: "yellow",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-6 w-6" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H15.75m-9.75 6.75h9a3.75 3.75 0 0 0 3.75-3.75V7.5a3.75 3.75 0 0 0-3.75-3.75h-9A3.75 3.75 0 0 0 3 7.5v9a3.75 3.75 0 0 0 3.75 3.75Z" />
       </svg>
     ),
   },

@@ -1,6 +1,6 @@
 "use server";
 
-import { compareTeams, fetchTeamForm, predictMatch } from "@/lib/api";
+import { chat, compareTeams, fetchTeamForm, predictMatch } from "@/lib/api";
 
 function toActionError(error) {
   return { error: error.message || "Something went wrong" };
@@ -47,6 +47,20 @@ export async function compareTeamsAction({ team_a, team_b, season }) {
 
   try {
     const data = await compareTeams(team_a, team_b, season);
+    return { data };
+  } catch (error) {
+    return toActionError(error);
+  }
+}
+
+export async function chatAction({ message, conversation_id }) {
+  const trimmed = message?.trim();
+  if (!trimmed) {
+    return { error: "Please enter a question" };
+  }
+
+  try {
+    const data = await chat(trimmed, conversation_id || undefined);
     return { data };
   } catch (error) {
     return toActionError(error);

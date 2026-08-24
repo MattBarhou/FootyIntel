@@ -82,3 +82,19 @@ export async function compareTeams(teamA, teamB, season) {
     cache: "no-store",
   });
 }
+
+export async function chat(message, conversationId) {
+  const payload = {
+    message,
+  };
+
+  if (conversationId) {
+    payload.conversation_id = conversationId;
+  }
+
+  return apiFetch("/api/chat", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    cache: "no-store",
+  });
+}
